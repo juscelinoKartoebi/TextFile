@@ -1,11 +1,8 @@
 package sr.bludots.textfile;
 
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 /**
  * Schrijf een programma
@@ -26,11 +23,10 @@ public class FileText {
 
 	public static void main(String args[]) {
 		createTextFile();
-//		deleteIf(); 
+		deleteIfMaxSize(); 
 	}
 
 	public static void createTextFile() {
-
 		for (String name : files) {
 			System.err.println(name);
 		}
@@ -45,13 +41,12 @@ public class FileText {
 			}
 		}
 	}
-
+//	 als deze groter is geworden dan 1000 bytes. (file.size of lenght)
 	public static void deleteIfMaxSize() {
 		File[] names = dir.listFiles();
 		for (File file : names) {
 			if (file.isFile()) {
-				if (textFile.length() > 1000) { // size of MB
-					// delete the file
+				if (textFile.length() > 1000) { 
 					file.delete();
 				}
 			}
