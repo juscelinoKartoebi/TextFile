@@ -29,7 +29,7 @@ public class FileText {
 		for (String name : files) {
 			System.err.println(name);
 		}}
-		
+//		writen naar textfile
 		public static void writeNamesInFile() {
 		int tries = 0;
 		while (tries < names.length) {
@@ -42,7 +42,7 @@ public class FileText {
 			}
 		}
 	}
-//	Deleten wanneer fileSize groter word dan 1000 bytes
+//	deleten wanneer fileSize groter word dan 1000 bytes
 	public static void deleteIfMaxSizeReached() {
 		File[] names = dir.listFiles();
 		for (File file : names) {
