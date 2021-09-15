@@ -14,35 +14,36 @@ import java.io.IOException;
  * 
  */
 public class FileText {
-	public static String[] names = { "Bryan Doorson", "Bryan Bijlhout", "Juscelino Kartoebi", "Kirsten Mentopawiro",
-			"Freddy Krueger" };
+	public static String[] names = { "Freddy Krueger", "Bryan Bijlhout", "Juscelino Kartoebi", "Kirsten Mentopawiro", "Bryan Doorson" };
 	static File dir = new File(".");
 	static String[] files = dir.list();
-	
 	static File textFile = new File("Names.txt");
 
 	public static void main(String args[]) {
-		createTextFile();
-		deleteIfMaxSize(); 
+		showFiles();
+		deleteIfMaxSizeReached(); 
+		writeNamesInFile();
 	}
 
-	public static void createTextFile() {
+	public static void showFiles() {
 		for (String name : files) {
 			System.err.println(name);
-		}
-		int run = 0;
-		while (run < names.length) {
+		}}
+		
+		public static void writeNamesInFile() {
+		int tries = 0;
+		while (tries < names.length) {
 			try {
 				FileWriter writer = new FileWriter(textFile, true);
-				writer.write(names[run++] + "\n");
+				writer.write(names[tries++] + "\n");
 				writer.close();
 			} catch (IOException io) {
 				System.err.println("Something went wrong:" + io.getMessage());
 			}
 		}
 	}
-//	 als deze groter is geworden dan 1000 bytes. (file.size of lenght)
-	public static void deleteIfMaxSize() {
+//	Deleten wanneer fileSize groter word dan 1000 bytes
+	public static void deleteIfMaxSizeReached() {
 		File[] names = dir.listFiles();
 		for (File file : names) {
 			if (file.isFile()) {
