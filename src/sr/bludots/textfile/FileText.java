@@ -23,16 +23,14 @@ public class FileText {
 	public static void main(String args[]) {
 		writeNamesInFile();
 		showFiles();
-		deleteIfMaxSizeReached();
-
+		deleteFileIfMaxSizeReached();
+		
 	}
-
 	public static void showFiles() {
-		for (String name : files) {
-			System.err.println(name);
+		for (String file : files) {
+			System.err.println(file);
 		}
 	}
-
 //		writen naar textfile
 	public static void writeNamesInFile() {
 		textFile = new File("names.txt");
@@ -47,10 +45,10 @@ public class FileText {
 			}
 		}
 		System.out.println("TextFile size = "+textFile.length() + "bytes");
+		
 	}
-
 //	deleten wanneer fileSize groter word dan 1000 bytes
-	public static void deleteIfMaxSizeReached() {
+	public static void deleteFileIfMaxSizeReached() {
 		if (textFile.length() > 1000) {
 			textFile.delete();
 			System.out.println("textfile deleted");
